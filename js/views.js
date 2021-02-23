@@ -1,9 +1,9 @@
 export const popView = (popAd) => {
     let imgHTML = '';
-    if(popAd.image){
+    if(popAd.foto){
       imgHTML=` <div class="card-image">
       <figure class="image is-4by3">
-      <img src="${popAd.image}" alt="Placeholder image">
+      <img src="${popAd.foto}" alt="Placeholder image">
       </figure>
       </div>`
     }

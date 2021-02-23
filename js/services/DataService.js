@@ -14,13 +14,13 @@ export default {
             const data = await response.json();
             return data.map(popAd => {
                 const user = popAd.userId || {};
-                
+
                 return {
                     nombre: popAd.nombre.replace(/(<([^>]+)>)/gi, ""),
                     venta: popAd.venta || false,
                     precio: popAd.precio || 0,
                     username: user.username || 'Desconocido',
-                    foto: popAd.image || null,
+                    foto: popAd.foto || null,
                     tags: popAd.tags || []
                 }
             }); // <--- esto realmente es un resolve(data)
