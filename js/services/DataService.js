@@ -14,6 +14,7 @@ export default {
             const data = await response.json();
             return data.map(popAd => {
                 const user = popAd.userId || {};
+                
                 return {
                     nombre: popAd.nombre.replace(/(<([^>]+)>)/gi, ""),
                     venta: popAd.venta || false,

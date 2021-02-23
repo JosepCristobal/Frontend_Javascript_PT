@@ -8,18 +8,18 @@ export const popView = (popAd) => {
       </div>`
     }
     
-    
+    //<time datetime="${popAd.date}">${popAd.date}</time>
     return `<div class="card">
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">${popAd.author}</p>
+            <p class="title is-4">${popAd.nombre}</p>
           </div>
         </div>
         <div class="content">
-          ${popAd.message}
+          ${popAd.precio}
           <br>
-          <time datetime="${popAd.date}">${popAd.date}</time>
+           <div ${popAd.tags}</div>
         </div>
       </div>
      ${imgHTML}
