@@ -1,0 +1,109 @@
+{"popAds":[{ 
+    "userId" : 1, 
+    "tags" : [
+        "motor", 
+        "lifestyle"
+    ], 
+    "nombre" : "Kawasaky", 
+    "venta" : true, 
+    "precio" : 4500.56, 
+    "foto" : "kawa.jpg"
+},
+{ 
+    "userId" : 2, 
+    "tags" : [
+        "work", 
+        "lifestyle", 
+        "mobile"
+    ], 
+    "nombre" : "iPhone 8", 
+    "venta" : false, 
+    "precio" : 990.76, 
+    "foto" : "iPhone8.jpg"
+},
+{ 
+    "userId" : 3, 
+    "tags" : [
+        "work", 
+        "lifestyle", 
+        "mobile"
+    ], 
+    "nombre" : "iPhone X", 
+    "venta" : false, 
+    "precio" : 1200.78, 
+    "foto" : "iPhoneX.jpg"
+},
+{ 
+    "userId" : 3, 
+    "tags" : [
+        "work", 
+        "lifestyle", 
+        "mobile"
+    ], 
+    "nombre" : "iPhone 5S", 
+    "venta" : false, 
+    "precio" : 800.7, 
+    "foto" : "iPhone5S.jpg"
+},
+{ 
+    "userId" : 2, 
+    "tags" : [
+        "lifestyle", 
+        "motor"
+    ], 
+    "nombre" : "Tesla mini", 
+    "venta" : false, 
+    "precio" : 1200.97, 
+    "foto" : "TeslaM.jpg"
+},
+{ 
+    "userId" : 1, 
+    "tags" : [
+        "lifestyle"
+    ], 
+    "nombre" : "Zapatillas de deporte", 
+    "venta" : true, 
+    "precio" : 30.89, 
+    "foto" : "zapdep.jpg"
+},
+{ 
+    "userId" : 1, 
+    "tags" : [
+        "lifestyle", 
+        "work"
+    ], 
+    "nombre" : "Televisión pantalla plana", 
+    "venta" : true, 
+    "precio" : 300.9, 
+    "foto" : "pantallaplana.jpg"
+},
+{ 
+    "userId" : 2, 
+    "tags" : [
+        "mobile", 
+        "work"
+    ], 
+    "nombre" : "DVD", 
+    "venta" : true, 
+    "precio" : 67.87, 
+    "foto" : "dvd.jpg" 
+},
+{ 
+    "userId" : 3, 
+    "tags" : [
+        "work", 
+        "lifestyle"
+    ], 
+    "nombre" : "Lámpara Solar", 
+    "venta" : true, 
+    "precio" : 59.9, 
+    "foto" : "img39.jpg"
+}],
+"users":[
+    {"username":"josep@com","password":"$2b$10$sByduDEMsL2n9qZhhIS2Fe6Vj1iI2D7XW2GsQNvcs2AHtSzGQLJmS","id":1},
+    {"username":"josep1@com","password":"$2b$10$sByduDEMsL2n9qZhhIS2Fe6Vj1iI2D7XW2GsQNvcs2AHtSzGQLJmS","id":2},
+    {"username":"josep2@com","password":"$2b$10$sByduDEMsL2n9qZhhIS2Fe6Vj1iI2D7XW2GsQNvcs2AHtSzGQLJmS","id":3},
+    {"username":"josep3@com","password":"$2b$10$sByduDEMsL2n9qZhhIS2Fe6Vj1iI2D7XW2GsQNvcs2AHtSzGQLJmS","id":4},
+    {"username":"josep4@com","password":"$2b$10$sByduDEMsL2n9qZhhIS2Fe6Vj1iI2D7XW2GsQNvcs2AHtSzGQLJmS","id":5}
+]
+}
