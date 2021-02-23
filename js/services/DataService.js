@@ -7,19 +7,23 @@ const TOKEN_KEY = 'token';
 export default {
 
     getPopAd: async function() {
-        const url = `${BASE_URL}/api/popAds?_expand=user`;
+        const url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=desc`;
         //const url = `${BASE_URL}/api/messages?_expand=user&_sort=id&_order=desc`;
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
             return data.map(popAd => {
-                const user = popAd.userId || {};
-
+                let type;
+                if (popAd.venta===true){
+                    type= "Venta"
+                } else{
+                    type="Se busca"
+                }
                 return {
                     nombre: popAd.nombre.replace(/(<([^>]+)>)/gi, ""),
-                    venta: popAd.venta || false,
+                    venta: type || "Se busca",
                     precio: popAd.precio || 0,
-                    username: user.username || 'Desconocido',
+                    userName: popAd.user.username || 'Desconocido',
                     foto: popAd.foto || null,
                     tags: popAd.tags || []
                 }

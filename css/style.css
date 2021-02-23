@@ -54,6 +54,10 @@
   padding: 20% 10%;
 }
 
+.card .card-image .image img {
+  height: 400px;
+}
+
 /* new tweet or login */
 
 /*Hay que regenerar el nobre*/

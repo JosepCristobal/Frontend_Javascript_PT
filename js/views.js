@@ -2,8 +2,9 @@ export const popView = (popAd) => {
     let imgHTML = '';
     if(popAd.foto){
       imgHTML=` <div class="card-image">
-      <figure class="image is-4by3">
-      <img src="${popAd.foto}" alt="Placeholder image">
+      
+      <figure class="image is-fullheight">
+        <img  src="${popAd.foto}" alt="Placeholder image" >
       </figure>
       </div>`
     }
@@ -17,10 +18,15 @@ export const popView = (popAd) => {
           </div>
         </div>
         <div class="content">
-          ${popAd.precio}
-          <br>
-           <div ${popAd.tags}</div>
+          ${popAd.precio} 
+          
         </div>
+        <div ${popAd.tags} Proves</div>
+        <p class="subtitle">
+        ${popAd.tags}
+        </p>
+        <div>${popAd.venta}</div>
+        <div>${popAd.userName}</div>
       </div>
      ${imgHTML}
     </div>`;
