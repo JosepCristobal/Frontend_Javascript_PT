@@ -31,7 +31,56 @@ export default {
         } else {
             throw new Error(`HTTP Error: ${response.status}`)
         }
-    }
+    },
+    
+    registerUser: async function(user) {
+        const url = `${BASE_URL}/auth/register`;
+        return await this.post(url, user);
+    },
+
+    login: async function(user) {
+        const url = `${BASE_URL}/auth/login`;
+        return await this.post(url, user);
+    },
+
+    saveToken: async function(token) {
+        localStorage.setItem(TOKEN_KEY, token);
+    },
+
+    getToken: async function() {
+        return localStorage.getItem(TOKEN_KEY);
+    },
+
+    isUserLogged: async function() {
+        const token = await this.getToken();
+        return token !== null;  // esto devuelve true o false
+    },
+    post: async function(url, postData, json=true) {
+        const config = {
+            method: 'POST',
+            headers: {},
+            body: null
+        };
+        if (json) {
+            config.headers['Content-Type'] = 'application/json';
+            config.body = JSON.stringify(postData);  // convierte el objeto de usuarios en un JSON
+        } else {
+            config.body = postData;
+        }
+        const token = await this.getToken();
+        if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        const response = await fetch(url, config);
+        const data = await response.json();  // respuesta del servidor sea OK o sea ERROR.
+        if (response.ok) {
+            return data;
+        } else {            
+            // TODO: mejorar gestión de errores
+            // TODO: si la respuesta es un 401 no autorizado, debemos borrar el token (si es que lo tenemos);
+            throw new Error(data.message || JSON.stringify(data));
+        }
+    },
 
 }
 
