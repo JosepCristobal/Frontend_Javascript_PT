@@ -1,12 +1,13 @@
 export const popView = (popAd) => {
     let imgHTML = '';
     if(popAd.foto){
-      imgHTML=` <div class="card-image">
-      
-      <figure class="image is-fullheight">
-        <img  src="${popAd.foto}" alt="Placeholder image" >
-      </figure>
-      </div>`
+      imgHTML=` <div class="card-image ">
+      <p class = "centerImg">
+        <img class= "imgWidth" src="${popAd.foto}" alt="Tags disponibles" />`
+    } else{
+      imgHTML=` <div class="card-image ">
+      <p class = "centerImg">
+      <img class= "imgWidth" src="${popAd.foto}" alt="Tags disponibles" />`
     }
     
     //<time datetime="${popAd.date}">${popAd.date}</time>
@@ -33,7 +34,7 @@ export const popView = (popAd) => {
   };
   
   
-  export const errorView = (errorMessage) => {
+export const errorView = (errorMessage) => {
     return `<article class="message is-danger">
       <div class="message-header">
         <p>Error</p>
@@ -43,5 +44,5 @@ export const popView = (popAd) => {
         ${errorMessage}
       </div>
     </article>`
-  }
+}
   
