@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const formElement = document.querySelector('.posts-detail');
     const formDetailController = new DetailPopAdController(formElement);
-    formDetailController.loadPost(1);
+    formDetailController.loadPost();
     // const queryParams = window.location.search.replace('?', '');  // ?next=otrapagina -> next=otrapagina
     // const queryParamsParts = queryParams.split('=');
     //     if (queryParamsParts.length >= 2) {

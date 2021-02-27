@@ -17,6 +17,7 @@ export default class PostsListController extends BaseController {
 
     async loadPosts() {
         this.publish(this.events.START_LOADING, {});
+        
         try {
             const popAd = await dataService.getPopAd();
             this.render(popAd);
