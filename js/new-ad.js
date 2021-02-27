@@ -1,6 +1,7 @@
 import LoaderController from './controllers/LoaderController.js';
 import ErrorController from './controllers/ErrorController.js';
-import DetailPopAdController from './controllers/DetailPopAdController.js';
+import NewAdFormController from './controllers/NewAdFormController.js';
+
 
 window.addEventListener('DOMContentLoaded', () => {
     const loader = document.querySelector('.lds-ring');
@@ -9,8 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const errorsElement = document.querySelector('.global-errors');
     const errorController = new ErrorController(errorsElement);
 
-    const formElement = document.querySelector('.posts-detail');
-    const formDetailController = new DetailPopAdController(formElement);
-    formDetailController.loadPost();
-
+    const formElement = document.querySelector('form');
+    new NewAdFormController(formElement);
 });

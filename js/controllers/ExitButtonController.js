@@ -14,7 +14,7 @@ export default class ExitButtonController extends BaseController {
                     await dataService.deleteToken();
                     window.location.reload();
                 } catch (error) {
-                    
+                    this.publish(this.events.ERROR, error);
                 }
                 
             }

@@ -80,7 +80,7 @@ export const popView = (popAd) => {
      <div class="content">
       ${popAd.detail}
       <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <time datetime="2021-2-28">11:50 PM - 28 Feb 2021</time>
     </div>
     <br>
     ${deleteButtonHTML}
