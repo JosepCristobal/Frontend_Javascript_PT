@@ -1,15 +1,21 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
 import { detailPopView } from '../views.js';
+import DeleteButtonController from './DeleteButtonController.js';
 
 export default class DetailPopAdController extends BaseController {
 
     render(popAd) { 
             const article = document.createElement('article');
             article.innerHTML = detailPopView(popAd);
+            const deleteButton = article.querySelector('[name="btnDelete"]');
+            //Cargamos el controlador de borrado de anuncio si el usuario tiene el botón de borrado
+            if (deleteButton) {
+                new DeleteButtonController(deleteButton, popAd);
+            }
             this.element.appendChild(article);
 
-        //this.myEventListener();
+        this.myEventListener();
     }
 
     async loadPost() {
@@ -34,18 +40,16 @@ export default class DetailPopAdController extends BaseController {
         }
     }
 
-    // myEventListener(){
-    //     //Con el doble click obtendremos el name de la imagen que corresponde al id: del anuncio
-    //    this.element.querySelectorAll(".imgWidth").forEach(imgW =>{
-    //     const newImage = imgW
-    //     newImage.addEventListener("dblclick", function(event){
-    //         event.preventDefault(); 
-    //         //Si todo ha ido bien, redireccionaremos a la página de detalle pasando el id en la query
-    //         alert(`Has pulsado en imagen con id: ${this.name}`);
-    //     },false);
-    //    });
-        
-    // }
+    myEventListener(){
+       const backButton = this.element.querySelector('[name="back"]')
+        backButton.addEventListener("click", function(event){
+            event.preventDefault(); 
+            //Redireccionaremos de la página de detalle a la página principal
+            //alert(`Has pulsado en retroceder`,false);
+            window.location.href = '/'
+        });
+       };
+
     paramValue(locationValue){
         const searchParams = new URLSearchParams(locationValue.search.substring(1));
         const searchResult= searchParams.get("id")

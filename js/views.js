@@ -35,6 +35,12 @@ export const popView = (popAd) => {
   };
 
   export const detailPopView = (popAd) => {
+    let deleteButtonHTML = '';
+    if (popAd.canBeDeleted) {
+      deleteButtonHTML = '<button name="btnDelete" class="button is-danger">Borrar</button>';
+    }
+    const retButtonHTML = '<button name="back" class="button is-success">Retroceder</button>'
+
     let imgHTML = '';
     if(popAd.foto){
       imgHTML=` <div class="card-image ">
@@ -76,6 +82,9 @@ export const popView = (popAd) => {
       <br>
       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
+    <br>
+    ${deleteButtonHTML}
+    ${retButtonHTML}
     </div>`;
   };
   

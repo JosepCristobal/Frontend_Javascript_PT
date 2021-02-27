@@ -7,7 +7,8 @@ const TOKEN_KEY = 'token';
 export default {
 
     getPopAd: async function(idAd=null) {
-        let url
+        let url;
+        const currentUser = await this.getUser();
         if (idAd===null){
             url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=asc`;
         }else{
@@ -52,7 +53,8 @@ export default {
                         userName: data.user.username || 'Desconocido',
                         foto: data.foto || null,
                         tags: data.tags || [] ,
-                        detail: data.description.replace(/(<([^>]+)>)/gi, "") || "Sin descripción"
+                        detail: data.description.replace(/(<([^>]+)>)/gi, "") || "Sin descripción",
+                        canBeDeleted: currentUser ? currentUser.userId === data.userId : false
                     }
 
         }; // <--- esto realmente es un resolve(data)
@@ -83,9 +85,47 @@ export default {
         const token = await this.getToken();
         return token !== null;  // esto devuelve true o false
     },
+    //Añadimos el post, delete y put porque hemos creado un método request que recoge los tres
     post: async function(url, postData, json=true) {
+        return await this.request('POST', url, postData, json);
+    },
+
+    delete: async function(url) {
+        return await this.request('DELETE', url, {});
+    },
+
+    put: async function(url, putData, json=true) {
+        return await this.request('PUT', url, putData, json);
+    },
+    // post: async function(url, postData, json=true) {
+    //     const config = {
+    //         method: 'POST',
+    //         headers: {},
+    //         body: null
+    //     };
+    //     if (json) {
+    //         config.headers['Content-Type'] = 'application/json';
+    //         config.body = JSON.stringify(postData);  // convierte el objeto de usuarios en un JSON
+    //     } else {
+    //         config.body = postData;
+    //     }
+    //     const token = await this.getToken();
+    //     if (token) {
+    //         config.headers['Authorization'] = `Bearer ${token}`;
+    //     }
+    //     const response = await fetch(url, config);
+    //     const data = await response.json();  // respuesta del servidor sea OK o sea ERROR.
+    //     if (response.ok) {
+    //         return data;
+    //     } else {            
+    //         // TODO: mejorar gestión de errores
+    //         // TODO: si la respuesta es un 401 no autorizado, debemos borrar el token (si es que lo tenemos);
+    //         throw new Error(data.message || JSON.stringify(data));
+    //     }
+    // },
+    request: async function(method, url, postData, json=true) {
         const config = {
-            method: 'POST',
+            method: method,
             headers: {},
             body: null
         };
@@ -109,6 +149,26 @@ export default {
             throw new Error(data.message || JSON.stringify(data));
         }
     },
+    getUser: async function() {
+        try {
+            const token = await this.getToken();
+            const tokenParts = token.split('.');
+            if (tokenParts.length !== 3) {
+                return null;
+            }
+            const payload = tokenParts[1]; // cogemos el payload, codificado en base64
+            const jsonStr = atob(payload); // descodificamos el base64
+            const { userId, username } = JSON.parse(jsonStr); // parseamos el JSON del token descodificado
+            return { userId, username };
+        } catch (error) {
+            return null;
+        }
+    },
+
+    deleteAd: async function(tweet) {
+        const url = `${BASE_URL}/api/popAds/${tweet.id}`;
+        return await this.delete(url);
+    }
 
 }
 
