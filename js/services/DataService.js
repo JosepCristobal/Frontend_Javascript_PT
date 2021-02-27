@@ -85,6 +85,9 @@ export default {
         const token = await this.getToken();
         return token !== null;  // esto devuelve true o false
     },
+    deleteToken: async function(){
+        localStorage.removeItem(TOKEN_KEY)
+    },
     //Añadimos el post, delete y put porque hemos creado un método request que recoge los tres
     post: async function(url, postData, json=true) {
         return await this.request('POST', url, postData, json);

@@ -8,9 +8,7 @@ export default class PostsListController extends BaseController {
         for (const popAd of popAds) {
             const article = document.createElement('article');
             article.innerHTML = popView(popAd);
-            this.element.appendChild(article);
-            
-            
+            this.element.appendChild(article);       
         }
         this.myEventListener();
     }

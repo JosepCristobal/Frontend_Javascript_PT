@@ -41,11 +41,11 @@ export default class DetailPopAdController extends BaseController {
     }
 
     myEventListener(){
+        //Añadimos el listener del click del botón back
        const backButton = this.element.querySelector('[name="back"]')
         backButton.addEventListener("click", function(event){
             event.preventDefault(); 
             //Redireccionaremos de la página de detalle a la página principal
-            //alert(`Has pulsado en retroceder`,false);
             window.location.href = '/'
         });
        };
