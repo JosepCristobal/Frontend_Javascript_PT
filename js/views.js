@@ -2,7 +2,7 @@ export const popView = (popAd) => {
     let imgHTML = '';
     if(popAd.foto){
       imgHTML=` <div class="card-image ">
-      <p class = "centerImg"> El id es  "${popAd.id}"
+      <p class = "centerImg">
         <img class= "imgWidth" name= "${popAd.id}" src="${popAd.foto}" alt="Tags disponibles" />`
     } else{
       imgHTML=` <div class="card-image ">
@@ -38,7 +38,7 @@ export const popView = (popAd) => {
     let imgHTML = '';
     if(popAd.foto){
       imgHTML=` <div class="card-image ">
-      <p class = "centerImg"> El id es  "${popAd.id}"
+      <p class = "centerImg">
         <img class= "imgWidth" name= "${popAd.id}" src="${popAd.foto}" alt="Tags disponibles" />`
     } else{
       imgHTML=` <div class="card-image ">
@@ -59,14 +59,23 @@ export const popView = (popAd) => {
           ${popAd.precio} 
           
         </div>
-        <div ${popAd.tags} Proves</div>
+        <div ${popAd.tags} </div>
         <p class="subtitle">
-        ${popAd.tags}
+          ${popAd.tags}
         </p>
         <div>${popAd.venta}</div>
         <div>${popAd.userName}</div>
       </div>
      ${imgHTML}
+     <br><br>
+    <p class="subtitle">
+     <strong>Detalle</strong>
+    </p>
+     <div class="content">
+      ${popAd.detail}
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
     </div>`;
   };
   

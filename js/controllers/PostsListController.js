@@ -37,7 +37,6 @@ export default class PostsListController extends BaseController {
         newImage.addEventListener("dblclick", function(event){
             event.preventDefault(); 
             //Si todo ha ido bien, redireccionaremos a la página de detalle pasando el id en la query
-            alert(`Has pulsado en imagen con id: ${this.name}`,false);
             window.location.href = `/detailPopAd.html?id=${this.name}`; 
         });
         

@@ -23,7 +23,6 @@ export default class DetailPopAdController extends BaseController {
             window.location.href = `/`
         }
         try {
-
             const popAds = await dataService.getPopAd(idAd);
             this.render(popAds);
         } catch (error) {

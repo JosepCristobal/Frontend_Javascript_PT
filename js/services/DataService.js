@@ -51,7 +51,8 @@ export default {
                         precio: data.precio || 0,
                         userName: data.user.username || 'Desconocido',
                         foto: data.foto || null,
-                        tags: data.tags || [] 
+                        tags: data.tags || [] ,
+                        detail: data.description.replace(/(<([^>]+)>)/gi, "") || "Sin descripción"
                     }
 
         }; // <--- esto realmente es un resolve(data)
