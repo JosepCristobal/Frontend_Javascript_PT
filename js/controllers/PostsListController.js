@@ -9,14 +9,17 @@ export default class PostsListController extends BaseController {
             const article = document.createElement('article');
             article.innerHTML = popView(popAd);
             this.element.appendChild(article);
+            
+            
         }
+        this.myEventListener();
     }
 
     async loadPosts() {
         this.publish(this.events.START_LOADING, {});
         try {
-            const popAds = await dataService.getPopAd();
-            this.render(popAds);
+            const popAd = await dataService.getPopAd();
+            this.render(popAd);
         } catch (error) {
             console.error(error);
             this.publish(this.events.ERROR, error);
@@ -24,6 +27,21 @@ export default class PostsListController extends BaseController {
             // esto se ejecuta siempre, vaya bien o vaya mal
             this.publish(this.events.FINISH_LOADING, {});
         }
+    }
+
+    myEventListener(){
+        //Con el doble click obtendremos el name de la imagen que corresponde al id: del anuncio
+       this.element.querySelectorAll(".imgWidth").forEach(imgW =>{
+        const newImage = imgW
+        newImage.addEventListener("dblclick", function(event){
+            event.preventDefault(); 
+            //Si todo ha ido bien, redireccionaremos a la página de detalle pasando el id en la query
+            alert(`Has pulsado en imagen con id: ${this.name}`,false);
+            window.location.href = `/detailPopAd.html?id=${this.name}`; 
+        });
+        
+       });
+        
     }
 
 }

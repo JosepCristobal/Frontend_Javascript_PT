@@ -6,28 +6,55 @@ const TOKEN_KEY = 'token';
 
 export default {
 
-    getPopAd: async function() {
-        const url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=desc`;
-        //const url = `${BASE_URL}/api/messages?_expand=user&_sort=id&_order=desc`;
+    getPopAd: async function(idAd=null) {
+        let url
+        if (idAd===null){
+            url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=asc`;
+        }else{
+             url = `${BASE_URL}/api/popAds/${idAd}?_expand=user`;
+        }
+        
+        //const url = `${BASE_URL}/api/messages?_expand=user&_sort=id&_order=asc`;
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            return data.map(popAd => {
+            const dataElement = Array.isArray(data);
+            if (dataElement){
+                return data.map(popAd => {
+                    let type;
+                    if (popAd.venta===true){
+                        type= "Venta"
+                    } else{
+                        type="Se busca"
+                    }
+                    return {
+                        id: popAd.id,
+                        nombre: popAd.nombre.replace(/(<([^>]+)>)/gi, ""),
+                        venta: type || "Se busca",
+                        precio: popAd.precio || 0,
+                        userName: popAd.user.username || 'Desconocido',
+                        foto: popAd.foto || null,
+                        tags: popAd.tags || [] 
+                    }
+                });
+            }else{
                 let type;
-                if (popAd.venta===true){
-                    type= "Venta"
-                } else{
-                    type="Se busca"
-                }
-                return {
-                    nombre: popAd.nombre.replace(/(<([^>]+)>)/gi, ""),
-                    venta: type || "Se busca",
-                    precio: popAd.precio || 0,
-                    userName: popAd.user.username || 'Desconocido',
-                    foto: popAd.foto || null,
-                    tags: popAd.tags || []
-                }
-            }); // <--- esto realmente es un resolve(data)
+                    if (data.venta===true){
+                        type= "Venta"
+                    } else{
+                        type="Se busca"
+                    }
+                    return {
+                        id: data.id,
+                        nombre: data.nombre.replace(/(<([^>]+)>)/gi, ""),
+                        venta: type || "Se busca",
+                        precio: data.precio || 0,
+                        userName: data.user.username || 'Desconocido',
+                        foto: data.foto || null,
+                        tags: data.tags || [] 
+                    }
+
+        }; // <--- esto realmente es un resolve(data)
         } else {
             throw new Error(`HTTP Error: ${response.status}`)
         }
