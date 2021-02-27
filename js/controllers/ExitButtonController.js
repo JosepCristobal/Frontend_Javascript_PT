@@ -17,8 +17,6 @@ export default class ExitButtonController extends BaseController {
                     
                 }
                 
-                //this.publish(this.events.TWEET_DELETED, tweet);
-                
             }
         });
     }
