@@ -1,6 +1,7 @@
 import BaseController from './BaseController.js';
 import dataService from '../services/DataService.js';
 import { popView } from '../views.js';
+import ExitButtonController from './ExitButtonController.js';
 
 export default class PostsListController extends BaseController {
 
@@ -15,7 +16,9 @@ export default class PostsListController extends BaseController {
 
     async loadPosts() {
         this.publish(this.events.START_LOADING, {});
-        
+        const exitButton = document.querySelector('.exit-button');
+        new ExitButtonController(exitButton);
+           
         try {
             const popAd = await dataService.getPopAd();
             this.render(popAd);
