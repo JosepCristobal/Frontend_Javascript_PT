@@ -80,13 +80,13 @@ Al entrar en nuestra aplicación lo primero que nos encontramos es una página c
 
 Página principal con anuncios Login o Registro:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTot.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Frontend_Javascript_PT/blob/master/resources/images/Captura21.40.52.png?raw=true" alt="Resultado API sin filtro" width="500"/>
 </p>
 
 
 Página de Login para entrar a gestionar nuevos anuncios o borrarlos
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTot.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Frontend_Javascript_PT/blob/master/resources/images/Captura21.41.48.png?raw=true" alt="Resultado API sin filtro" width="400"/>
 </p>
 
 Una vez autenticados, los botones de la página principal se sustituyen por los de "Nuevo anuncio" y "Exit".
@@ -94,7 +94,7 @@ El primero nos llevará a una pantalla para gestionar nuevos anuncios y el botó
 
 Botones una vez autenticado:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTot.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Frontend_Javascript_PT/blob/master/resources/images/Captura21.42.24.png?raw=true" alt="Resultado API sin filtro" width="500"/>
 </p>
 
 
@@ -103,7 +103,7 @@ En la pantalla de detalle nos aparecerá más información referente a anuncio q
 
 Muestra de pantalla de detalle con posibilidad de borrado.
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTot.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Frontend_Javascript_PT/blob/master/resources/images/Captura21.56.32.png?raw=true" alt="Resultado API sin filtro" width="500"/>
 </p>
 
 Desde la pantalla principal y estando autenticados, tendermos la posibilidad de crear nuevos anuncios, para ello pulsaremos en el boton "Nuevo anuncio".
@@ -120,8 +120,22 @@ En la pantalla de alta de nuevos anuncios tendremos las siguientes característi
 
 Pantalla de alta de nuevos anuncios
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTot.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Frontend_Javascript_PT/blob/master/resources/images/Captura21.57.13.png?raw=true" alt="Resultado API sin filtro" width="500"/>
 </p>
+
+### Conclusiones finales
+
+Creo que con este trabajo he cubierto todos los requisitos mínimos que se pedían en el enunciado de la práctica y el esfuerzo que he dedicado ha estado compensado por todo lo que he aprendido y entendido.
+Esta práctica ha sido un gran reto para mi porque el mundo del frontend no lo había entendido hasta ahora. Empiezo a ver la luz.
+
+Al final el tiempo se me ha agotado y aunque apurando hasta el último minuto, me ha quedado pendiente el propósito de mejorar la presentación de las páginas, de pulir y mejorar el código (que se puede mejorar muchísimo).
+También me ha quedado pendiente realizar todo la parte opcional de la práctica pero no ha podido ser. 
+
+Realmente ha sido una práctica muy interesante y me lo he pasado muy bien. He aprendido mucho realizándola.
+
+Muchas gracias Alberto por todo.
+
+Un placer, como siempre!
 
 
 
