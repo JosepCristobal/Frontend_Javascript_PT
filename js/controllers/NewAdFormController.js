@@ -52,25 +52,36 @@ export default class NewAdFormController extends BaseController {
         // controlamos cuando se envía el formulario
         this.element.addEventListener('submit', async event => {
             event.preventDefault();  // cancelamos el envío del formulario (comportamiento por defecto)
+            //TODO getUser id
+            let idUser
+            try {
+                idUser = await dataService.getUser();
+                //window.location.href = '/?mensaje=tweetOK'
+            } catch (error) {
+                this.publish(this.events.ERROR, error)
+            } finally {
+                //this.publish(this.events.FINISH_LOADING)
+            }
+            //TODO Get next AD
 
             //TODO quedará por verificar todos los valores de los campos 
             const ad = {
                 nombre: this.element.elements.nombreForm.value,
                 venta: this.element.elements.ventaForm.value,
                 precio: this.element.elements.precioForm.value, //TODO Transformar a numérico
-                userId: 4,
+                userId: idUser.userId || 0,
                 tags: getSelectValues(this.element.elements.tagsForm),
-                detail:this.element.elements.descriptionForm.value,
-                image: null
+                description:this.element.elements.descriptionForm.value,
+                foto: ""
             }
-            debugger;
+            
             if (this.element.elements.file.files.length > 0) {
-                ad.image = this.element.elements.file.files[0];
+                ad.foto = this.element.elements.file.files[0];
             }
             this.publish(this.events.START_LOADING);
             try {
                 await dataService.saveAd(ad);
-                //window.location.href = '/?mensaje=tweetOK'
+                window.location.href = '/?ad=AdOK'
             } catch (error) {
                 this.publish(this.events.ERROR, error)
             } finally {

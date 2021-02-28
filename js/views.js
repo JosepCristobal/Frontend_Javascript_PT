@@ -1,5 +1,6 @@
 export const popView = (popAd) => {
     let imgHTML = '';
+    
     if(popAd.foto){
       imgHTML=` <div class="card-image ">
       <p class = "centerImg">

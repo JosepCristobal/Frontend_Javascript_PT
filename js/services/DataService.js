@@ -14,8 +14,7 @@ export default {
         }else{
              url = `${BASE_URL}/api/popAds/${idAd}?_expand=user`;
         }
-        
-        //const url = `${BASE_URL}/api/messages?_expand=user&_sort=id&_order=asc`;
+
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
@@ -57,7 +56,7 @@ export default {
                         canBeDeleted: currentUser ? currentUser.userId === data.userId : false
                     }
 
-        }; // <--- esto realmente es un resolve(data)
+        }; 
         } else {
             throw new Error(`HTTP Error: ${response.status}`)
         }
@@ -101,40 +100,15 @@ export default {
         return await this.request('PUT', url, putData, json);
     },
     saveAd: async function(ad) {
-        // const url = `${BASE_URL}/api/popAds`;
-        // if (ad.image) {
-        //     const imageURL = await this.uploadImage(ad.image);
-        //     ad.image = imageURL;
-        // }
-        // return await this.post(url, ad);
-        alert(ad)
+        const url = `${BASE_URL}/api/popAds`;
+        debugger
+        if (ad.foto) {
+            const imageURL = await this.uploadImage(ad.foto);
+            ad.foto = imageURL;
+        }
+        return await this.post(url, ad);
     },
-    // post: async function(url, postData, json=true) {
-    //     const config = {
-    //         method: 'POST',
-    //         headers: {},
-    //         body: null
-    //     };
-    //     if (json) {
-    //         config.headers['Content-Type'] = 'application/json';
-    //         config.body = JSON.stringify(postData);  // convierte el objeto de usuarios en un JSON
-    //     } else {
-    //         config.body = postData;
-    //     }
-    //     const token = await this.getToken();
-    //     if (token) {
-    //         config.headers['Authorization'] = `Bearer ${token}`;
-    //     }
-    //     const response = await fetch(url, config);
-    //     const data = await response.json();  // respuesta del servidor sea OK o sea ERROR.
-    //     if (response.ok) {
-    //         return data;
-    //     } else {            
-    //         // TODO: mejorar gestión de errores
-    //         // TODO: si la respuesta es un 401 no autorizado, debemos borrar el token (si es que lo tenemos);
-    //         throw new Error(data.message || JSON.stringify(data));
-    //     }
-    // },
+
     request: async function(method, url, postData, json=true) {
         const config = {
             method: method,
@@ -168,18 +142,25 @@ export default {
             if (tokenParts.length !== 3) {
                 return null;
             }
-            const payload = tokenParts[1]; // cogemos el payload, codificado en base64
-            const jsonStr = atob(payload); // descodificamos el base64
-            const { userId, username } = JSON.parse(jsonStr); // parseamos el JSON del token descodificado
+            const payload = tokenParts[1]; 
+            const jsonStr = atob(payload); 
+            const { userId, username } = JSON.parse(jsonStr); 
             return { userId, username };
         } catch (error) {
             return null;
         }
     },
 
-    deleteAd: async function(tweet) {
-        const url = `${BASE_URL}/api/popAds/${tweet.id}`;
+    deleteAd: async function(ad) {
+        const url = `${BASE_URL}/api/popAds/${ad.id}`;
         return await this.delete(url);
+    },
+    uploadImage: async function(image) {
+        const form = new FormData();
+        form.append('file', image);
+        const url = `${BASE_URL}/upload`;
+        const response = await this.post(url, form, false);
+        return response.path || null;
     }
 
 
