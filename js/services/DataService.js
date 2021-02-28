@@ -10,7 +10,7 @@ export default {
         let url;
         const currentUser = await this.getUser();
         if (idAd===null){
-            url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=asc`;
+            url = `${BASE_URL}/api/popAds?_expand=user&_sort=id&_order=desc`;
         }else{
              url = `${BASE_URL}/api/popAds/${idAd}?_expand=user`;
         }

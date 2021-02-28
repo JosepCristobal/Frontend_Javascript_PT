@@ -29,6 +29,8 @@ export default class NewAdFormController extends BaseController {
     attachEventListeners() {
         // a medida que el usuario escribe, comprobamos si el formulario es válido para habiltiar o no el botón de enviar
         const nombreAds = this.element.querySelector('[name="nombreForm"]');
+        const tagsAd = this.element.querySelector('[name="tagsForm"]'); 
+        const descriptionAd = this.element.querySelector('[name="descriptionForm"]'); 
         nombreAds.addEventListener('keyup', () => {
              // si el input es OK lo marco en verde, si no, en rojo
             if (nombreAds.validity.valid) {
@@ -38,9 +40,6 @@ export default class NewAdFormController extends BaseController {
                 nombreAds.classList.remove("is-success");
                 nombreAds.classList.add("is-danger");
             }
-         //TODO tratar de la misma forma el campo textarea y el multiselector   
-
-
             const button = this.element.querySelector('[name="saveAd"]');
             if (this.element.checkValidity()) {
                 button.removeAttribute('disabled');
@@ -48,6 +47,44 @@ export default class NewAdFormController extends BaseController {
                 button.setAttribute('disabled', true);
             }
         });
+        tagsAd.addEventListener('click',()=>{
+            if (tagsAd.validity.valid) {
+                tagsAd.classList.add("is-success");
+                tagsAd.classList.remove("is-danger");
+            } else {
+                tagsAd.classList.remove("is-success");
+                tagsAd.classList.add("is-danger");
+            }
+            const button = this.element.querySelector('[name="saveAd"]');
+            if (this.element.checkValidity()) {
+                button.removeAttribute('disabled');
+            } else {
+                button.setAttribute('disabled', true);
+            }
+        });
+        descriptionAd.addEventListener('keyup', () => {
+            // si el input es OK lo marco en verde, si no, en rojo
+           if (descriptionAd.validity.valid) {
+                descriptionAd.classList.add("is-success");
+                descriptionAd.classList.remove("is-danger");
+           } else {
+                descriptionAd.classList.remove("is-success");
+                descriptionAd.classList.add("is-danger");
+           }
+
+        const button = this.element.querySelector('[name="saveAd"]');
+            if (this.element.checkValidity()) {
+                button.removeAttribute('disabled');
+            } else {
+                button.setAttribute('disabled', true);
+            }
+        });
+        
+        const exitButton = this.element.querySelector('[name="backForm"]');
+        exitButton.addEventListener('click',event =>{
+            event.preventDefault();
+            window.location.href = '/'
+        })
 
         // controlamos cuando se envía el formulario
         this.element.addEventListener('submit', async event => {
@@ -81,7 +118,9 @@ export default class NewAdFormController extends BaseController {
             this.publish(this.events.START_LOADING);
             try {
                 await dataService.saveAd(ad);
-                window.location.href = '/?ad=AdOK'
+                //Después de guardar el anuncio, enviaremos al usuario a la página principal de anuncios
+                window.location.href = '/'
+                
             } catch (error) {
                 this.publish(this.events.ERROR, error)
             } finally {

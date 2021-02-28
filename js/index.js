@@ -19,6 +19,4 @@ window.addEventListener('DOMContentLoaded', async (event) => {
   const errorsElement = document.querySelector('.global-errors');
   const errorController = new ErrorController(errorsElement);
 
-  //const newTweetButtons = document.querySelector('.new-tweet');
-  //new NewTweetOrLoginController(newTweetButtons);
 });

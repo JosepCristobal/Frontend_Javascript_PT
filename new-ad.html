@@ -13,23 +13,33 @@
     <div class="global-errors hidden"></div>
 
     <div class="container">
-        <div class="columns">
-                <div class="column is-three-fifths is-offset-one-fifth">
-                <!-- <div class="column is-three-thirds"> -->
-                <h1 class="title">Nuevo Anuncio</h1>
+
+      <div class="container is-fluid">
+        <div class="notification is-primary ">
+            <strong class="is-size-3"> NodePop     </strong>
+            
+            <div class="is-pulled-right ">
+              <h1 class="title">Nuevo Anuncio</h1>
+
+            </div>
+        </div>
+    </div>
+        <div class="columns">          
+              <div class="column is-three-fifths is-offset-one-fifth">        
                 <form>
-                    <p class="is-size-5">Nombre del anuncio</p>
+                    <br>
+                  <p class="is-size-5 has-background-primary-light has-text-primary-dark">Nombre del anuncio</p>
                     <input name="nombreForm" class="input is-danger" type="text" placeholder="Nombre del anuncio" required>
-                    <p class="is-size-5">Tipo de transacción</p>
+                    <p class="is-size-5 has-background-primary-light has-text-primary-dark">Tipo de transacción</p>
                     <div class="select">
                         <select name="ventaForm">
                             <option value=true>Vendo</option>
                             <option value=false>Compro</option>
                         </select>
                     </div>
-                    <p class="is-size-5">Precio del producto</p>
+                    <p class="is-size-5 has-background-primary-light has-text-primary-dark">Precio del producto</p>
                     <input name="precioForm" class="input" type="text" placeholder="0,0">
-                    <p class="is-size-5">Clasificación del producto</p>
+                    <p class="is-size-5 has-background-primary-light has-text-primary-dark">Clasificación del producto</p>
                     <div class="select is-multiple">
                         <select name="tagsForm" multiple size="4" required>
                           <option value="work">Work</option>
@@ -38,29 +48,13 @@
                           <option value="mobile">Mobile</option>
                         </select>
                       </div>
-                      <p class="is-size-5">Descripción</p>
+                      <p class="is-size-5 has-background-primary-light has-text-primary-dark">Descripción</p>
                     <textarea name="descriptionForm" class="textarea" placeholder="Descripción del producto..." required></textarea>
-                    <!-- <input type="file" name="fotoForm" accept="image/*"> -->
+              
                     <br>
-                    
-                    
-                    <!-- <div class="file">
-                        <label class="file-label">
-                          <input class="file-input" type="file" name="resume" accept="image/*">
-                          <span class="file-cta">
-                            <span class="file-icon">
-                              <i class="fas fa-upload"></i>
-                            </span>
-                            <span class="file-label">
-                              Choose a file…
-                            </span>
-                          </span>
-                        </label>
-                    </div>
-                    <br> -->
-                    <input class="button is-primary is-pulled-right" type="file" name="file" accept="image/*"><p></p>
-                    <button name="saveAd" class="button is-primary is-pulled-right" disabled>Publicar</button>
-                    <button name="back" class="button is-success">Back</button>
+                    <input class="button is-primary is-pulled-right" type="file" name="file" accept="image/*">
+                    <button name="saveAd" class="button is-info" disabled>Publicar</button>
+                    <button name="backForm" class="button is-success">Back</button>
                     
                 </form>
             </div>
