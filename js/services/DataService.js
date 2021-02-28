@@ -101,7 +101,6 @@ export default {
     },
     saveAd: async function(ad) {
         const url = `${BASE_URL}/api/popAds`;
-        debugger
         if (ad.foto) {
             const imageURL = await this.uploadImage(ad.foto);
             ad.foto = imageURL;
