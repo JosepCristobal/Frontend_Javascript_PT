@@ -14,11 +14,12 @@
 
     <div class="container">
         <div class="columns">
-            <div class="column is-five-thirds">
+                <div class="column is-three-fifths is-offset-one-fifth">
+                <!-- <div class="column is-three-thirds"> -->
                 <h1 class="title">Nuevo Anuncio</h1>
                 <form>
                     <p class="is-size-5">Nombre del anuncio</p>
-                    <input name="nombreForm" class="input" type="text" placeholder="Nombre del anuncio">
+                    <input name="nombreForm" class="input is-danger" type="text" placeholder="Nombre del anuncio" required>
                     <p class="is-size-5">Tipo de transacción</p>
                     <div class="select">
                         <select name="ventaForm">
@@ -30,7 +31,7 @@
                     <input name="precioForm" class="input" type="text" placeholder="0,0">
                     <p class="is-size-5">Clasificación del producto</p>
                     <div class="select is-multiple">
-                        <select multiple size="4">
+                        <select name="tagsForm" multiple size="4" required>
                           <option value="work">Work</option>
                           <option value="lifestyle">Lifestyle</option>
                           <option value="motor">Motor</option>
@@ -43,7 +44,7 @@
                     <br>
                     
                     
-                    <div class="file">
+                    <!-- <div class="file">
                         <label class="file-label">
                           <input class="file-input" type="file" name="resume" accept="image/*">
                           <span class="file-cta">
@@ -56,8 +57,9 @@
                           </span>
                         </label>
                     </div>
-                    <br>
-                    <button class="button is-primary is-pulled-right" disabled>Publicar</button>
+                    <br> -->
+                    <input class="button is-primary is-pulled-right" type="file" name="file" accept="image/*"><p></p>
+                    <button name="saveAd" class="button is-primary is-pulled-right" disabled>Publicar</button>
                     <button name="back" class="button is-success">Back</button>
                     
                 </form>

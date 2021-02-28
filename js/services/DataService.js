@@ -100,6 +100,15 @@ export default {
     put: async function(url, putData, json=true) {
         return await this.request('PUT', url, putData, json);
     },
+    saveAd: async function(ad) {
+        // const url = `${BASE_URL}/api/popAds`;
+        // if (ad.image) {
+        //     const imageURL = await this.uploadImage(ad.image);
+        //     ad.image = imageURL;
+        // }
+        // return await this.post(url, ad);
+        alert(ad)
+    },
     // post: async function(url, postData, json=true) {
     //     const config = {
     //         method: 'POST',
@@ -172,6 +181,8 @@ export default {
         const url = `${BASE_URL}/api/popAds/${tweet.id}`;
         return await this.delete(url);
     }
+
+
 
 }
 
