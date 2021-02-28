@@ -48,7 +48,6 @@ export default class RegisterFormController extends BaseController {
                 // valido si todo el formulario es OK para habilitar o deshabilitar el botón
                 if (this.element.checkValidity()) {
                     button.removeAttribute('disabled');
-                    // button.setAttribute('disabled', false); // esto también valdría
                 } else {
                     button.setAttribute('disabled', true);
                 }

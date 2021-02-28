@@ -26,7 +26,7 @@ export default class ButtonStatusController extends BaseController {
             newRegisterButton.classList.add('is-hidden');
 
         } else {
-            //Por el contrario, si no está logueado, abilitaremos los botones login y register, deshabilitando nuevo anuncio y salir
+            //Por el contrario, si no está logueado, habilitaremos los botones login y register, deshabilitando nuevo anuncio y salir
             const newAdButton = this.element.querySelector('.new-ad-button');
             newAdButton.classList.add('is-hidden');
 

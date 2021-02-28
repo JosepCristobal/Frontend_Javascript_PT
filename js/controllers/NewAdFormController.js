@@ -89,16 +89,13 @@ export default class NewAdFormController extends BaseController {
         // controlamos cuando se envía el formulario
         this.element.addEventListener('submit', async event => {
             event.preventDefault();  // cancelamos el envío del formulario (comportamiento por defecto)
-            //TODO getUser id
+            
             let idUser
             try {
                 idUser = await dataService.getUser();
-                //window.location.href = '/?mensaje=tweetOK'
             } catch (error) {
                 this.publish(this.events.ERROR, error)
-            } finally {
-                //this.publish(this.events.FINISH_LOADING)
-            }
+            } 
             //TODO Get next AD
 
             //TODO quedará por verificar todos los valores de los campos 

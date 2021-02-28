@@ -35,7 +35,7 @@ export default class DetailPopAdController extends BaseController {
             console.error(error);
             this.publish(this.events.ERROR, error);
         } finally {
-            // esto se ejecuta siempre, vaya bien o vaya mal
+
             this.publish(this.events.FINISH_LOADING, {});
         }
     }
