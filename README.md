@@ -1,5 +1,5 @@
 # Frontend Javascript
-## Práctica de Frontend con Javastript.
+## Práctica de Frontend con Javascript.
 
 
 ## Objetivo 
@@ -71,7 +71,7 @@ Los componentes a destacar utilizados en nuestro proyecto son:
 
 ### Puesta en marcha
 * Se acompaña al proyecto una carpeta con todas la imágenes que deberán ser copiadas en la carpeta public del proyecto sparrest.js. Las imágenes se encuentran en la carpeta del poryecto en resources/images/anuncios.
-* También se acompaña un fichero db.json que se encuentra en la carpeta resources. Este fichero lo deberemos copiar en la carpeta principal de sparrest.js. Contiene toda la información necesaria en formato json para poder arrancar la aplicación con anuncios y usuarios.
+* También se acompaña un fichero db.json que se encuentra en la carpeta resources. Este fichero se deberá copiar en la carpeta principal de sparrest.js. Contiene toda la información necesaria, en formato json, para poder arrancar la aplicación con anuncios y usuarios.
 * La pruebas de la aplicación se han realizado a través de nuestro entorno de desarrollo de Visua Studio Code, arrancando como servidor de páginas web BrowserSync desde el propio VS. y accediendo a la aplicación a través de un navegador, en nuestro caso Chrome.(http://localhost:3000).
 
 ### Funcionalidades desarrolladas
@@ -90,7 +90,7 @@ Página de Login para entrar a gestionar nuevos anuncios o borrarlos
 </p>
 
 Una vez autenticados, los botones de la página principal se sustituyen por los de "Nuevo anuncio" y "Exit".
-El primero nos llevará a una pantalla para gestionar nuevos anuncios y el botón Exit, borrará el token guardado en nuestro local y nos situará a la pantalla inicial pendientes de loguearse.
+El primero nos llevará a una pantalla para gestionar nuevos anuncios y el botón Exit, borrará el token guardado en nuestro local y nos situará a la pantalla inicial como si no nos hubieramos autenticado.
 
 Botones una vez autenticado:
 <p align="center">
@@ -98,8 +98,8 @@ Botones una vez autenticado:
 </p>
 
 
-Estando el la página inicial, si hacemos un "Doble Click" encima de la fotografía de un anuncio, la aplicación nos llevará a la página de detalle del anuncio. Si estuvieramos autenticados y el anuncio fuera de nuestra propiedad, nos permitirá borrarlo y si no estamos autenticados, sólo veremos el botón volver para retroceder a la página principal.
-En la pantalla de detalle nos aparecerá más información referente a anuncio que en la pantalla principal.
+Estando el la página inicial, si hacemos un <strong>"Doble Click"</strong> encima de la fotografía de un anuncio, la aplicación nos llevará a la página de detalle del anuncio. Si estuvieramos autenticados y el anuncio fuera de nuestra propiedad, nos permitirá borrarlo, si no estamos autenticados sólo veremos el botón volver para retroceder a la página principal.
+En la pantalla de detalle nos aparecerá más información referente al anuncio, podremos ver una descripción del producto.
 
 Muestra de pantalla de detalle con posibilidad de borrado.
 <p align="center">
@@ -108,14 +108,14 @@ Muestra de pantalla de detalle con posibilidad de borrado.
 
 Desde la pantalla principal y estando autenticados, tendermos la posibilidad de crear nuevos anuncios, para ello pulsaremos en el boton "Nuevo anuncio".
 
-En la pantalla de alta de nuevos anuncios tendremos las siguientes características:
+En la pantalla de alta de nuevos anuncios encontraremos las siguientes funcionalidades y características:
 
 * Campos Nombre, Clasificación y descripción son obligatorios. El botón publicar no se activará hasta que los tres tengan los datos correctos.
 * Hemos incluido en el tipo de transacción un selector para recoger un solo valor.
 * Para la Clasificación de producto hemos incluido un multi selector donde podremos recoger varios valores para la clasificación de nuestro producto.
 * Se incluye un botón de volver para poder navegar a la pantalla principal sin crear un nuevo anuncio.
-* Tambien diponemos del boton Publicar, que nos permitirá guardar un nuevo anuncio.
-* Y el botón que nos permitirá la captura de ficheros de fotografías para incluir en nuestro anuncio.
+* Tambien diponemos del boton Publicar que nos permitirá guardar un nuevo anuncio.
+* Y por último, el botón que nos permitirá la captura de ficheros de fotografías para incluir en nuestro anuncio.
 
 
 Pantalla de alta de nuevos anuncios
